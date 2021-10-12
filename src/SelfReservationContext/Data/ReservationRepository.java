@@ -5,7 +5,7 @@ import SelfReservationContext.Domain.Reservation;
 public class ReservationRepository {
 
     public boolean save(Reservation reservation) {
-        System.out.println("saving reservation...");
+        System.out.println("Saving reservation...");
         return true;
     }
 

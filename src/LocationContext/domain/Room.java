@@ -10,5 +10,21 @@ public class Room {
     private boolean beamer;
     private List<Desk> desks;
 
+    public Room(){}
+    public Room(List<Desk> desks){ this.desks = desks;}
+
+    public List<Desk> getDesks() { return desks; }
+
+    public void setCurrentlyUsable(Boolean available){
+        this.currentlyUsable = available;
+    }
+
+    public Room roomUnavailable(){
+        setCurrentlyUsable(false);
+        for(Desk desk: desks){
+            desk.currentlyUnavailable();
+        }
+        return this;
+    }
 
 }

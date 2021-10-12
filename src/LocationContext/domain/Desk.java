@@ -1,5 +1,7 @@
 package LocationContext.domain;
 
+import LocationContext.Application.DeskApplicationService;
+
 public class Desk {
     private Long deskId;
     private boolean computerUsable;
@@ -8,6 +10,10 @@ public class Desk {
     private Floor floor;
     private DeskType deskType;
     private Room room;
+
+    public Desk(Long deskId){
+        this.deskId = deskId;
+    }
 
     public Desk(Long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, Floor floor, DeskType deskType, Room room) {
         this.deskId = deskId;
@@ -73,5 +79,12 @@ public class Desk {
 
     public void setRoom(Room room) {
         this.room = room;
+    }
+
+    public Desk currentlyUnavailable(){
+        setCurrentlyUsable(false);
+        DeskApplicationService.deskApplicationService.closedDesk(deskId);
+
+        return this;
     }
 }

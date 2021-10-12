@@ -27,8 +27,7 @@ public class Reservation {
         this.currentStatus = currentStatus;
     }
 
-    public void closedDesk(){
+    public void cancelReservation(){
         this.currentStatus = "Cancelled";
-        System.out.println("Cancelling Reservation!");
     }
 }

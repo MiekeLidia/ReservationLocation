@@ -1,19 +1,20 @@
 package SelfReservationContext.Application;
 
+import LocationContext.Application.DeskApplicationService;
 import SelfReservationContext.Data.ReservationRepository;
 import SelfReservationContext.Domain.Reservation;
 
 public class ReservationApplicationService {
     private final ReservationRepository resRepository;
 
-    public ReservationApplicationService(ReservationRepository resRepository){
-        this.resRepository = resRepository;
+    public ReservationApplicationService(){
+        this.resRepository = new ReservationRepository();
     }
 
-    public void closedDesk(Long deskId){
+    public void cancelReservation(Long deskId){
         Reservation reservation = resRepository.findReservationByDesk(deskId);
 
-        reservation.closedDesk();
+        reservation.cancelReservation();
 
         resRepository.save(reservation);
     }
