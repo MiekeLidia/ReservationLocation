@@ -25,6 +25,9 @@ public class Desk {
         this.room = room;
     }
 
+    public Desk(long locationId, long floorId, long deskId, boolean computer, boolean socket, DeskType deskType) {
+    }
+
     public Long getDeskId() {
         return deskId;
     }
