@@ -3,14 +3,14 @@ package LocationContext.Application;
 import LocationContext.domain.Desk;
 import LocationContext.domain.Room;
 import LocationContext.domain.repositories.DeskRepository;
-import LocationContext.domain.repositories.RoomRepository;
+import LocationContext.infrastructure.persistence.HibernateRoomRepository;
 
 public class RoomApplicationService {
-    public final RoomRepository roomRepository;
+    public final HibernateRoomRepository roomRepository;
     public final DeskRepository deskRepository;
 
     public RoomApplicationService(){
-        this.roomRepository = new RoomRepository();
+        this.roomRepository = new HibernateRoomRepository();
         this.deskRepository = new DeskRepository();
     }
 

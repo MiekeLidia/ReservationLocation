@@ -15,6 +15,11 @@ public class Room {
 
     public List<Desk> getDesks() { return desks; }
 
+    public void addDesk(long locationId, long floorId, long deskId, boolean computer, boolean socket, DeskType deskType){
+        Desk newDesk = new Desk(deskId);
+        desks.add(newDesk);
+    }
+
     public void setCurrentlyUsable(Boolean available){
         this.currentlyUsable = available;
     }
