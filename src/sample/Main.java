@@ -1,6 +1,7 @@
 package sample;
 
 import LocationContext.Addapter.LocationRESTService;
+import LocationContext.Addapter.RoomRESTService;
 import SelfReservationContext.Adapter.RestService;
 import SelfReservationContext.Application.ReservationApplicationService;
 import SelfReservationContext.Data.ReservationRepository;
@@ -12,8 +13,8 @@ public class Main {
     }
 
     public static void roomPutUnavailable(Long roomId){
-        LocationRESTService locationRESTService = new LocationRESTService();
-        locationRESTService.roomUnavailable(roomId);
+        RoomRESTService roomService = new RoomRESTService();
+        roomService.roomUnavailable(roomId);
     }
 
 }

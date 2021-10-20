@@ -11,11 +11,6 @@ public class LocationRESTService {
         this.roomApplicationService = new RoomApplicationService();
     }
 
-    public Room roomUnavailable(Long roomId){
-        roomApplicationService.roomUnavailable(roomId);
-        return new Room();
-    }
-
     public boolean addDeskToRoom(long roomId, long adminId, long locationId, long floorId, long deskId, boolean computer, boolean socket, DeskType deskType){
 //        try{
 //            DeskApplicationServicek.addDeskToRoom(roomId, adminId, locationId, floorId, deskId, computer, socket, deskType);
