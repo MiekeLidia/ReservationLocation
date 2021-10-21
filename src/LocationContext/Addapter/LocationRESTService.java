@@ -19,7 +19,7 @@ public class LocationRESTService {
 
     public boolean addDeskToRoom(long roomId, long adminId, long locationId, long floorId, long deskId, boolean computer, boolean socket, DeskType deskType){
         try{
-            DeskApplicationServicek.addDeskToRoom(roomId, adminId, locationId, floorId, deskId, computer, socket, deskType);
+            DeskApplicationService.addDeskToRoom(roomId, adminId, locationId, floorId, deskId, computer, socket, deskType);
             return true;
         }catch (Exeption e){
             return false;
