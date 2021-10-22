@@ -25,6 +25,8 @@ public class RoomApplicationService {
         }
         roomRepository.save(room);
 
+        // publisher.publishRetrievalOf
+
         return room;
     }
 }

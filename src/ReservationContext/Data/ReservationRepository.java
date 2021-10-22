@@ -1,6 +1,6 @@
-package SelfReservationContext.Data;
+package ReservationContext.Data;
 
-import SelfReservationContext.Domain.Reservation;
+import ReservationContext.Domain.Reservation;
 
 public class ReservationRepository {
 

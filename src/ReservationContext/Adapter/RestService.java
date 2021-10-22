@@ -1,7 +1,7 @@
-package SelfReservationContext.Adapter;
+package ReservationContext.Adapter;
 
 import AccountContext.EmployeeRestService.EmployeeRestService;
-import SelfReservationContext.Application.ReservationApplicationService;
+import ReservationContext.Application.ReservationApplicationService;
 
 public class RestService {
     public static final RestService restService = new RestService();

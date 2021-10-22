@@ -1,7 +1,7 @@
 package LocationContext.Application;
 
 import LocationContext.domain.DeskType;
-import SelfReservationContext.Adapter.RestService;
+import ReservationContext.Adapter.RestService;
 
 public class DeskApplicationService {
     public static final DeskApplicationService deskApplicationService = new DeskApplicationService();

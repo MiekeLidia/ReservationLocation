@@ -1,8 +1,7 @@
-package SelfReservationContext.Application;
+package ReservationContext.Application;
 
-import LocationContext.Application.DeskApplicationService;
-import SelfReservationContext.Data.ReservationRepository;
-import SelfReservationContext.Domain.Reservation;
+import ReservationContext.Data.ReservationRepository;
+import ReservationContext.Domain.Reservation;
 
 public class ReservationApplicationService {
     private final ReservationRepository resRepository;

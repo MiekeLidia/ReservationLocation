@@ -1,20 +1,18 @@
 package sample;
 
-import LocationContext.Addapter.LocationRESTService;
 import LocationContext.Addapter.RoomRESTService;
+import LocationContext.Application.DeskApplicationService;
 import LocationContext.Application.RoomApplicationService;
 import LocationContext.domain.repositories.DeskRepository;
 import LocationContext.domain.repositories.RoomRepository;
 import LocationContext.infrastructure.persistence.HibernateDeskRepository;
 import LocationContext.infrastructure.persistence.HibernateRoomRepository;
-import SelfReservationContext.Adapter.RestService;
-import SelfReservationContext.Application.ReservationApplicationService;
-import SelfReservationContext.Data.ReservationRepository;
 
 public class Main {
     private static RoomRepository roomRepository;
     private static DeskRepository deskRepository;
-    private static RoomApplicationService applicationService;
+    private static RoomApplicationService roomApplicationService;
+    private static DeskApplicationService deskApplicationService;
 
     public static void main(String[] args) {
         setup();
@@ -24,11 +22,12 @@ public class Main {
     private static void setup(){
         roomRepository = new HibernateRoomRepository();
         deskRepository = new HibernateDeskRepository();
-        applicationService = new RoomApplicationService(roomRepository, deskRepository);
+        roomApplicationService = new RoomApplicationService(roomRepository, deskRepository);
+        deskApplicationService = new DeskApplicationService();
     }
 
     public static void roomPutUnavailable(Long roomId){
-        RoomRESTService roomService = new RoomRESTService(applicationService);
+        RoomRESTService roomService = new RoomRESTService(roomApplicationService);
         roomService.roomUnavailable(roomId);
     }
 

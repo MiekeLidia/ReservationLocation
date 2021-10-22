@@ -1,4 +1,4 @@
-package SelfReservationContext.Domain;
+package ReservationContext.Domain;
 
 public class ReservationChangeLog {
 }

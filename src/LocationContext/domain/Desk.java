@@ -30,7 +30,7 @@ public class Desk {
 
     public Desk currentlyUnavailable(){
         setCurrentlyUsable(false);
-        
+
         // Inject Adapter pattern
         DeskApplicationService.deskApplicationService.closedDesk(deskId);
 
