@@ -8,6 +8,18 @@ import java.util.ArrayList;
 public class RoomRepository {
 
 
+    public boolean roomExists(long roomId) {
+        if (this.findRoomById(roomId) == null){
+            return false;
+        }
+        return true;
+
+    }
+
+    private boolean findRoomById(long roomId) {
+        return findById(roomId);
+    }
+
     public boolean save(Room room){
         System.out.println("Room Saved!");
         return true;

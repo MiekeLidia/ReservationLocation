@@ -13,22 +13,21 @@ public class DeskApplicationService {
     public boolean addDeskToRoom(long roomId, long adminId, long locationId, long floorId, long deskId, boolean computer, boolean socket, DeskType deskType){
 
         boolean validateAdmin = validateAdminID(adminId);
-        boolean deskExsists = DeskRepository.deskExists(adminId);
+        boolean deskExsists = DeskRepository.deskExists(deskId);
+        boolean roomExists = RoomRepository.roomExists(roomId);
 
 
 
+        if (validateAdmin == true && deskExsists == false && roomExists == true){
 
-
-
-
-        Room room = RoomRepository.getRoomById(roomId);
-
-        if (adminId in adminList && roomId.Exists && deskId.Exists){
+            Room room = RoomRepository.getRoomById(roomId);
             Desk d = room.addDesk(locationId, floorId, deskId, computer, socket, deskType);
         }
+        
     }
 
-    public void store(){}
+
+
 
     public void closedDesk(Long deskId){
         RestService.restService.closedDesk(deskId);
