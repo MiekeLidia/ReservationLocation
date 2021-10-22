@@ -15,8 +15,8 @@ public class Room {
 
     public List<Desk> getDesks() { return desks; }
 
-    public Desk addDesk(long locationId, long floorId, long deskId, boolean computer, boolean socket, DeskType deskType){
-        Desk newDesk = new Desk(locationId, floorId, deskId, computer,deskType, socket);
+    public Desk addDesk(long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, Floor floor, DeskType deskType){
+        Desk newDesk = new Desk(deskId, computerUsable, currentlyUsable, sockets, floor, deskType,  this);
         desks.add(newDesk);
         return newDesk;
     }

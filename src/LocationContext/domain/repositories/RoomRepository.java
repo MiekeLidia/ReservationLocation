@@ -8,15 +8,15 @@ import java.util.ArrayList;
 public class RoomRepository {
 
 
-    public boolean roomExists(long roomId) {
-        if (this.findRoomById(roomId) == null){
+    public static boolean roomExists(long roomId) {
+        if (findRoomById(roomId) == null){
             return false;
         }
         return true;
 
     }
 
-    private boolean findRoomById(long roomId) {
+    private static Room findRoomById(long roomId) {
         return findById(roomId);
     }
 
@@ -25,7 +25,7 @@ public class RoomRepository {
         return true;
     }
 
-    public Room getRoomById(Long roomId){
+    public static Room getRoomById(Long roomId){
         ArrayList<Desk> desks = new ArrayList<>();
         Desk desk1 = new Desk(1L);
         Desk desk2 = new Desk(2L);

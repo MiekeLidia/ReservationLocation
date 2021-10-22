@@ -7,15 +7,14 @@ import java.util.ArrayList;
 
 public class DeskRepository {
 
-    public boolean deskExists(long deskId) {
-        if (this.getDeskById(deskId) == null){
+    public static boolean deskExists(long deskId) {
+        if (getDeskById(deskId) == null){
             return false;
         }
         return true;
-
     }
 
-    public Desk getDeskById(Long deskId){
+    public static Desk getDeskById(Long deskId){
        return findById(deskId);
     }
 
