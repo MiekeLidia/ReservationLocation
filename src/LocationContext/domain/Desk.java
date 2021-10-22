@@ -24,65 +24,14 @@ public class Desk {
         this.deskType = deskType;
         this.room = room;
     }
-
-    public Long getDeskId() {
-        return deskId;
-    }
-
-    public void setDeskId(Long deskId) {
-        this.deskId = deskId;
-    }
-
-    public boolean isComputerUsable() {
-        return computerUsable;
-    }
-
-    public void setComputerUsable(boolean computerUsable) {
-        this.computerUsable = computerUsable;
-    }
-
-    public boolean isCurrentlyUsable() {
-        return currentlyUsable;
-    }
-
     public void setCurrentlyUsable(boolean currentlyUsable) {
         this.currentlyUsable = currentlyUsable;
     }
 
-    public boolean isSockets() {
-        return sockets;
-    }
-
-    public void setSockets(boolean sockets) {
-        this.sockets = sockets;
-    }
-
-    public Floor getFloor() {
-        return floor;
-    }
-
-    public void setFloor(Floor floor) {
-        this.floor = floor;
-    }
-
-    public DeskType getDeskType() {
-        return deskType;
-    }
-
-    public void setDeskType(DeskType deskType) {
-        this.deskType = deskType;
-    }
-
-    public Room getRoom() {
-        return room;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
-    }
-
     public Desk currentlyUnavailable(){
         setCurrentlyUsable(false);
+        
+        // Inject Adapter pattern
         DeskApplicationService.deskApplicationService.closedDesk(deskId);
 
         return this;

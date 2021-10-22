@@ -7,8 +7,8 @@ public class RoomRESTService {
 
     public RoomApplicationService roomApplicationService;
 
-    public RoomRESTService(){
-        this.roomApplicationService = new RoomApplicationService();
+    public RoomRESTService(RoomApplicationService applicationService){
+        this.roomApplicationService = applicationService;
     }
 
     public Room roomUnavailable(Long roomId){

@@ -3,15 +3,17 @@ package LocationContext.Application;
 import LocationContext.domain.Desk;
 import LocationContext.domain.Room;
 import LocationContext.domain.repositories.DeskRepository;
+import LocationContext.domain.repositories.RoomRepository;
+import LocationContext.infrastructure.persistence.HibernateDeskRepository;
 import LocationContext.infrastructure.persistence.HibernateRoomRepository;
 
 public class RoomApplicationService {
-    public final HibernateRoomRepository roomRepository;
+    public final RoomRepository roomRepository;
     public final DeskRepository deskRepository;
 
-    public RoomApplicationService(){
-        this.roomRepository = new HibernateRoomRepository();
-        this.deskRepository = new DeskRepository();
+    public RoomApplicationService(RoomRepository roomRepository, DeskRepository deskRepository){
+        this.roomRepository = roomRepository;
+        this.deskRepository = deskRepository;
     }
 
     public Room roomUnavailable(Long roomId){
@@ -21,7 +23,6 @@ public class RoomApplicationService {
         for(Desk desk: room.getDesks()){
             deskRepository.save(desk);
         }
-
         roomRepository.save(room);
 
         return room;

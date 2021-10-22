@@ -16,6 +16,7 @@ public class DeskApplicationService {
     }
 
     public void store(){}
+
     public void closedDesk(Long deskId){
         RestService.restService.closedDesk(deskId);
     }

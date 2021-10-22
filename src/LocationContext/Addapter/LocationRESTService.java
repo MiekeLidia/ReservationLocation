@@ -8,7 +8,7 @@ public class LocationRESTService {
     public RoomApplicationService roomApplicationService;
 
     public LocationRESTService(){
-        this.roomApplicationService = new RoomApplicationService();
+//        this.roomApplicationService = new RoomApplicationService();
     }
 
     public boolean addDeskToRoom(long roomId, long adminId, long locationId, long floorId, long deskId, boolean computer, boolean socket, DeskType deskType){
