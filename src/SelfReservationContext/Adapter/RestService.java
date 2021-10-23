@@ -17,9 +17,9 @@ public class RestService {
 
     public void bookReservation(Date date, Time time,  Time amountTime, Long employeeId, Long deskId ){
         if (reservationService.checkDeskAvailability(deskId, time, date, amountTime)){
-            Reservation reservation = new Reservation(date,time, amountTime,employeeId,deskId)
+            Reservation reservation = new Reservation(date, time, amountTime, employeeId, deskId);
         }
-        
+
 
     }
 
