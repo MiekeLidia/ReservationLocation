@@ -1,15 +1,31 @@
 package sample;
 
-//import LocationContext.Adapter.LocationRESTService;
-
-import LocationContext.Adapter.RoomRESTService;
-import LocationContext.Application.RoomApplicationService;
-import LocationContext.domain.DeskType;
+        import LocationContext.Adapter.RoomRESTService;
+        import LocationContext.Application.DeskApplicationService;
+        import LocationContext.Application.RoomApplicationService;
+        import LocationContext.adapter.RoomRESTService;
+        import LocationContext.application.DeskApplicationService;
+        import LocationContext.application.RoomApplicationService;
+        import LocationContext.domain.DeskType;
+        import LocationContext.domain.repositories.DeskRepository;
+        import LocationContext.domain.repositories.FloorRepository;
+        import LocationContext.domain.repositories.RoomRepository;
+        import LocationContext.infrastructure.persistence.HibernateDeskRepository;
+        import LocationContext.infrastructure.persistence.HibernateRoomRepository;
 
 public class Main {
+    private static RoomRepository roomRepository;
+    private static DeskRepository deskRepository;
+    private static FloorRepository floorRepository;
+    private static RoomApplicationService roomApplicationService;
+    private static DeskApplicationService deskApplicationService;
 
     public static void main(String[] args) {
-//        roomPutUnavailable(10L);
+        setup();
+        roomPutUnavailable(10L);
+
+
+        //add Desk To Room
         Long roomId = 1L;
         Long adminId = 1L;
         Long locationId = 1L;
@@ -19,25 +35,25 @@ public class Main {
         boolean currentlyUsable = true;
         boolean sockets = false;
         DeskType deskType = DeskType.STANDAARD_DESK;
-
-
-
-
         addDeskToRoom(roomId, adminId, locationId, floorId, deskId, computerUsable, currentlyUsable, sockets, deskType);
 
     }
 
-//    public static void roomPutUnavailable(Long roomId){
-//        LocationRESTService locationRESTService = new LocationRESTService();
-//        locationRESTService.roomUnavailable(roomId);
-//    }
+    private static void setup() {
+        roomRepository = new HibernateRoomRepository();
+        deskRepository = new HibernateDeskRepository();
+        roomApplicationService = new RoomApplicationService(deskRepository, roomRepository, floorRepository);
+        deskApplicationService = new DeskApplicationService();
+    }
 
-    public static void addDeskToRoom(Long roomId, Long adminId, Long locationId, Long floorId, Long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, DeskType deskType){
+    public static void roomPutUnavailable(Long roomId) {
+        RoomRESTService roomService = new RoomRESTService(roomApplicationService);
+        roomService.roomUnavailable(roomId);
+    }
 
-        RoomRESTService roomRESTService = new RoomRESTService(new RoomApplicationService());
+    public static void addDeskToRoom(Long roomId, Long adminId, Long locationId, Long floorId, Long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, DeskType deskType) {
+        RoomRESTService roomRESTService = new RoomRESTService(roomApplicationService);
         roomRESTService.addDeskToRoom(roomId, adminId, locationId, floorId, deskId, computerUsable, currentlyUsable, sockets, deskType);
-
-
     }
 }
 
