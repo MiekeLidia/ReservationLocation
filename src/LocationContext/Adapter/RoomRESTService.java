@@ -1,4 +1,4 @@
-package LocationContext.Addapter;
+package LocationContext.Adapter;
 
 import LocationContext.Application.RoomApplicationService;
 import LocationContext.domain.Desk;

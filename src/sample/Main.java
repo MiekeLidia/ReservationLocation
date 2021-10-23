@@ -1,9 +1,6 @@
 package sample;
 
-import LocationContext.Addapter.LocationRESTService;
-import SelfReservationContext.Adapter.RestService;
-import SelfReservationContext.Application.ReservationApplicationService;
-import SelfReservationContext.Data.ReservationRepository;
+import LocationContext.Adapter.LocationRESTService;
 
 public class Main {
 
