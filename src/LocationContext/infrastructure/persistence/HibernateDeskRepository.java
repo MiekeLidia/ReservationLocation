@@ -16,4 +16,9 @@ public class HibernateDeskRepository implements DeskRepository {
         System.out.println("Getting desk: " + id + "...");
         return new Desk(id);
     }
+
+    public Desk findDeskById(Long id) {
+        System.out.println("Getting desk: " + id + "...");
+        return new Desk(id);
+    }
 }

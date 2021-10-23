@@ -1,6 +1,6 @@
 package LocationContext.domain;
 
-import LocationContext.Application.DeskApplicationService;
+import LocationContext.application.DeskApplicationService;
 
 public class Desk {
     private Long deskId;
