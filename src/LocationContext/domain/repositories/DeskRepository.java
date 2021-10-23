@@ -5,7 +5,7 @@ import LocationContext.domain.Room;
 
 import java.util.ArrayList;
 
-public class DeskRepository {
+public interface DeskRepository {
 
     public static boolean deskExists(long deskId) {
         if (getDeskById(deskId) == null){

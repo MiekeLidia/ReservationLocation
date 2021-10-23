@@ -5,7 +5,7 @@ import LocationContext.domain.Room;
 
 import java.util.ArrayList;
 
-public class RoomRepository {
+public interface RoomRepository {
 
 
     public static boolean roomExists(long roomId) {
