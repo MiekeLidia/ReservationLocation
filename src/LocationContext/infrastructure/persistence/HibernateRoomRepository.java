@@ -15,7 +15,7 @@ public class HibernateRoomRepository implements RoomRepository {
     }
 
     @Override
-    public Room getRoomById(Long roomId) {
+    public Room findById(Long roomId) {
         System.out.println("Getting Room: " + roomId + "...");
 
         ArrayList<Desk> desks = new ArrayList<Desk>();

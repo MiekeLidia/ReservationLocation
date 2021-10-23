@@ -17,8 +17,12 @@ public class RoomApplicationService {
         this.floorRepository = floorRepository;
     }
 
+    public void setDeskApplicationService(DeskApplicationService deskApplicationService){
+        this.deskApplicationService = deskApplicationService;
+    }
+
     public Room roomUnavailable(Long roomId) {
-        Room room = roomRepository.getRoomById(roomId);
+        Room room = roomRepository.findById(roomId);
         room.roomUnavailable(deskApplicationService);
 
         for (Desk desk : room.getDesks()) {
@@ -28,23 +32,23 @@ public class RoomApplicationService {
         return room;
     }
 
-    public Desk addDeskToRoom(long adminId, Long roomId, long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, Long floorId, DeskType deskType, Long locationId) {
+    public boolean addDeskToRoom(long adminId, Long roomId, long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, Long floorId, DeskType deskType, Long locationId) {
         Desk desk = deskRepository.findById(deskId);
-        Room room = roomRepository.getRoomById(roomId);
+        Room room = roomRepository.findById(roomId);
 
         if (desk == null && room != null){
             room.addDesk(deskId, computerUsable, currentlyUsable, sockets, floorId, deskType, locationId);
+            roomRepository.save(room);
+            deskRepository.save(desk);
+            return true;
         }
-        return null;
-    }
 
-    public void setDeskApplicationService(DeskApplicationService deskApplicationService){
-        this.deskApplicationService = deskApplicationService;
+        return false;
     }
 
     public void assignRoomToFloor(Long floorId, Long roomId) {
         Floor floor = floorRepository.getFloorById(floorId);
-        Room room = roomRepository.getRoomById(roomId);
+        Room room = roomRepository.findById(roomId);
 
         try{
             if (floor != null && room != null){

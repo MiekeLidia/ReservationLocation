@@ -1,6 +1,6 @@
 package sample;
 
-import LocationContext.Addapter.RoomRESTService;
+import LocationContext.Adapter.RoomRESTService;
 import LocationContext.Application.DeskApplicationService;
 import LocationContext.Application.LocationApplicationService;
 import LocationContext.Application.RoomApplicationService;

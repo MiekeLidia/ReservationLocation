@@ -5,7 +5,7 @@ import java.util.List;
 public class Floor {
     private Long floorId;
     private int floorNr;
-    private boolean currentleyUsable;
+    private boolean currentlyUsable;
     private List<Room> rooms;
 
     public Floor(List<Room> rooms) {

@@ -1,4 +1,4 @@
-package LocationContext.tests;
+package LocationContext.test;
 
 import LocationContext.Application.DeskApplicationService;
 import LocationContext.Application.RoomApplicationService;

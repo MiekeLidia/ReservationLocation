@@ -14,6 +14,8 @@ public class Desk {
     protected Long locationId;
     private DeskApplicationService deskApplicationService;
 
+    public Desk(){}
+
     public Desk(Long deskId){
         this.deskId = deskId;
     }

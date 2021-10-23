@@ -21,13 +21,9 @@ public class Room {
     public List<Desk> getDesks() { return desks; }
 
     public Desk addDesk(long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, Long floorId, DeskType deskType, Long locationId){
-        Desk newDesk = new Desk(deskId, computerUsable, currentlyUsable, sockets, floorId, deskType,  this.roomId, locationId);
+        Desk newDesk = new Desk(deskId, computerUsable, currentlyUsable, sockets, floorId, deskType, this.roomId, locationId);
         this.desks.add(newDesk);
         return newDesk;
-//    public Desk addDesk(long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, Floor floor, DeskType deskType){
-//        Desk newDesk = new Desk(deskId, computerUsable, currentlyUsable, sockets, floor, deskType,  this);
-//        desks.add(newDesk);
-//        return newDesk;
     }
 
     public Long getRoomId() {

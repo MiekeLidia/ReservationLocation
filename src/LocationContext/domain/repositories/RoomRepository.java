@@ -5,5 +5,5 @@ import LocationContext.domain.Room;
 public interface RoomRepository {
     public boolean save(Room room);
 
-    public Room getRoomById(Long roomId);
+    public Room findById(Long roomId);
 }

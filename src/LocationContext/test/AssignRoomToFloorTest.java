@@ -1,6 +1,5 @@
 package LocationContext.test;
 
-import LocationContext.Application.DeskApplicationService;
 import LocationContext.Application.RoomApplicationService;
 import LocationContext.domain.repositories.DeskRepository;
 import LocationContext.domain.repositories.FloorRepository;
