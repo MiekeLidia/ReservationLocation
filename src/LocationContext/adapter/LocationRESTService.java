@@ -19,9 +19,9 @@ public class LocationRESTService {
         return new Room();
     }
 
-    public boolean assignRoomToFloor(Long locationId, Long floorId, Long roomId) {
+    public boolean assignRoomToFloor(Long floorId, Long roomId) {
         try {
-            roomApplicationService.assignRoomToFloor(locationId, floorId, roomId);
+            roomApplicationService.assignRoomToFloor(floorId, roomId);
             return true;
         } catch (Exception e) {
             e.getMessage();

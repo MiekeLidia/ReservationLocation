@@ -34,7 +34,18 @@ public class RoomApplicationService {
 //
 //    }
 
-    public void assignRoomToFloor(Long locationId, Long floorId, Long roomId) {
+    public void assignRoomToFloor(Long floorId, Long roomId) {
         Floor floor = floorRepository.getFloorById(floorId);
+        Room room = roomRepository.getRoomById(roomId);
+
+        try{
+            if (floor != null && room != null){
+                floor.assignRoom();
+            }
+        }catch (Exception e){
+            e.getMessage();
+        }
+
+        floorRepository.save(floor);
     }
 }

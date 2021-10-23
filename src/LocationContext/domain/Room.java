@@ -15,22 +15,26 @@ public class Room {
 
     public List<Desk> getDesks() { return desks; }
 
-    public Desk addDesk(long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, Floor floor, DeskType deskType){
-        Desk newDesk = new Desk(deskId, computerUsable, currentlyUsable, sockets, floor, deskType,  this);
-        desks.add(newDesk);
-        return newDesk;
+//    public Desk addDesk(long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, Floor floor, DeskType deskType){
+//        Desk newDesk = new Desk(deskId, computerUsable, currentlyUsable, sockets, floor, deskType,  this);
+//        desks.add(newDesk);
+//        return newDesk;
+//    }
+
+    public Long getRoomId() {
+        return roomId;
     }
 
     public void setCurrentlyUsable(Boolean available){
         this.currentlyUsable = available;
     }
 
-    public Room roomUnavailable(){
-        setCurrentlyUsable(false);
-        for(Desk desk: desks){
-            desk.currentlyUnavailable();
-        }
-        return this;
-    }
+//    public Room roomUnavailable(){
+//        setCurrentlyUsable(false);
+//        for(Desk desk: desks){
+//            desk.currentlyUnavailable();
+//        }
+//        return this;
+//    }
 
 }
