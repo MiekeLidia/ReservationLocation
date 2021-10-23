@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public interface DeskRepository {
 
-    public Desk getDeskById(Long deskId);
+    public Desk findDeskById(Long id);
 
     public boolean save(Desk desk);
 }
