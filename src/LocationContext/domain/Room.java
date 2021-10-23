@@ -28,7 +28,7 @@ public class Room {
 //        Desk newDesk = new Desk(deskId, computerUsable, currentlyUsable, sockets, floor, deskType,  this);
 //        desks.add(newDesk);
 //        return newDesk;
-//    }
+    }
 
     public Long getRoomId() {
         return roomId;

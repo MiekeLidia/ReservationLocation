@@ -1,7 +1,7 @@
 package LocationContext.test;
 
-import LocationContext.application.DeskApplicationService;
-import LocationContext.application.RoomApplicationService;
+import LocationContext.Application.DeskApplicationService;
+import LocationContext.Application.RoomApplicationService;
 import LocationContext.domain.repositories.DeskRepository;
 import LocationContext.domain.repositories.FloorRepository;
 import LocationContext.domain.repositories.RoomRepository;
@@ -23,7 +23,7 @@ public class AssignRoomToFloorTest {
         System.out.println("Setting up system...");
         this.roomRepository = new HibernateRoomRepository();
         this.floorRepository = new HibernateFloorRepository();
-        this.roomApplicationService = new RoomApplicationService(deskRepository, roomRepository, floorRepository);
+        this.roomApplicationService = new RoomApplicationService(roomRepository, deskRepository, floorRepository);
     }
 
     @Test

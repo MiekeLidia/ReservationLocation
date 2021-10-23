@@ -3,8 +3,10 @@ package LocationContext.tests;
 import LocationContext.Application.DeskApplicationService;
 import LocationContext.Application.RoomApplicationService;
 import LocationContext.domain.repositories.DeskRepository;
+import LocationContext.domain.repositories.FloorRepository;
 import LocationContext.domain.repositories.RoomRepository;
 import LocationContext.infrastructure.persistence.HibernateDeskRepository;
+import LocationContext.infrastructure.persistence.HibernateFloorRepository;
 import LocationContext.infrastructure.persistence.HibernateRoomRepository;
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +16,7 @@ import org.junit.jupiter.api.BeforeEach;
 class ClosingRoomTest {
     private RoomRepository roomRepository;
     private DeskRepository deskRepository;
+    private FloorRepository floorRepository;
     private RoomApplicationService roomApplicationService;
     private DeskApplicationService deskApplicationService;
 
@@ -22,7 +25,8 @@ class ClosingRoomTest {
         System.out.println("Setting up system...");
         this.roomRepository = new HibernateRoomRepository();
         this.deskRepository = new HibernateDeskRepository();
-        this.roomApplicationService = new RoomApplicationService(roomRepository, deskRepository);
+        this.floorRepository = new HibernateFloorRepository();
+        this.roomApplicationService = new RoomApplicationService(roomRepository, deskRepository, floorRepository);
         this.deskApplicationService = new DeskApplicationService(deskRepository, roomRepository);
         roomApplicationService.setDeskApplicationService(deskApplicationService);
         deskApplicationService.setRoomApplicationService(roomApplicationService);

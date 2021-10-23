@@ -2,16 +2,19 @@ package LocationContext.Application;
 
 import LocationContext.domain.*;
 import LocationContext.domain.repositories.DeskRepository;
+import LocationContext.domain.repositories.FloorRepository;
 import LocationContext.domain.repositories.RoomRepository;
 
 public class RoomApplicationService {
     private final DeskRepository deskRepository;
     private final RoomRepository roomRepository;
+    private final FloorRepository floorRepository;
     private DeskApplicationService deskApplicationService;
 
-    public RoomApplicationService(RoomRepository roomRepository, DeskRepository deskRepository){
+    public RoomApplicationService(RoomRepository roomRepository, DeskRepository deskRepository, FloorRepository floorRepository){
         this.roomRepository = roomRepository;
         this.deskRepository = deskRepository;
+        this.floorRepository = floorRepository;
     }
 
     public Room roomUnavailable(Long roomId) {
@@ -37,5 +40,20 @@ public class RoomApplicationService {
 
     public void setDeskApplicationService(DeskApplicationService deskApplicationService){
         this.deskApplicationService = deskApplicationService;
+    }
+
+    public void assignRoomToFloor(Long floorId, Long roomId) {
+        Floor floor = floorRepository.getFloorById(floorId);
+        Room room = roomRepository.getRoomById(roomId);
+
+        try{
+            if (floor != null && room != null){
+                floor.assignRoom();
+            }
+        }catch (Exception e){
+            e.getMessage();
+        }
+
+        floorRepository.save(floor);
     }
 }

@@ -1,6 +1,6 @@
-package LocationContext.adapter;
+package LocationContext.Adapter;
 
-import LocationContext.application.RoomApplicationService;
+import LocationContext.Application.RoomApplicationService;
 import LocationContext.domain.DeskType;
 import LocationContext.domain.Room;
 import LocationContext.domain.repositories.DeskRepository;
