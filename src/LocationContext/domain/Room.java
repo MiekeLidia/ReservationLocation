@@ -1,5 +1,7 @@
 package LocationContext.domain;
 
+import LocationContext.domain.repositories.RoomRepository;
+
 import java.util.List;
 
 public class Room {
@@ -9,15 +11,16 @@ public class Room {
     private  boolean currentlyUsable;
     private boolean beamer;
     private List<Desk> desks;
+    RoomRepository roomRepository;
 
     public Room(){}
     public Room(List<Desk> desks){ this.desks = desks;}
 
     public List<Desk> getDesks() { return desks; }
 
-    public Desk addDesk(long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, Floor floor, DeskType deskType){
-        Desk newDesk = new Desk(deskId, computerUsable, currentlyUsable, sockets, floor, deskType,  this);
-        desks.add(newDesk);
+    public Desk addDesk(long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, Long floorId, DeskType deskType, Long locationId){
+        Desk newDesk = new Desk(deskId, computerUsable, currentlyUsable, sockets, floorId, deskType,  this.roomId, locationId);
+        this.desks.add(newDesk);
         return newDesk;
     }
 

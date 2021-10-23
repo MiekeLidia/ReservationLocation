@@ -1,5 +1,6 @@
 package LocationContext.Application;
 
+import IdentityAndAccessContext.Adapter.IdentitiAndAccessRESTService;
 import LocationContext.domain.*;
 import LocationContext.domain.repositories.DeskRepository;
 import LocationContext.domain.repositories.RoomRepository;
@@ -22,12 +23,17 @@ public class RoomApplicationService {
         }
 
         roomRepository.save(room);
-
         return room;
     }
 
-    public boolean addDeskToRoom(long adminId, Long roomId, long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, Long floorId, DeskType deskType, Long locationId) {
-        Desk desk = new Desk(deskId, computerUsable, currentlyUsable, sockets, floorId, deskType, locationId);
+    public Desk addDeskToRoom(long adminId, Long roomId, long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, Long floorId, DeskType deskType, Long locationId) {
+        boolean validateAdmin = IdentitiAndAccessRESTService.validateAdminID(adminId);
+        Desk desk = deskRepository.getDeskById(deskId);
+        Room room = roomRepository.getRoomById(roomId);
 
+        if (desk == null && validateAdmin && room != null){
+            room.addDesk(deskId, computerUsable, currentlyUsable, sockets, floorId, deskType, locationId);
+        }
+        return null;
     }
 }
