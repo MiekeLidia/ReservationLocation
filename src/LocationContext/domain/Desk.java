@@ -1,6 +1,6 @@
 package LocationContext.domain;
 
-import LocationContext.Application.DeskApplicationService;
+import LocationContext.application.DeskApplicationService;
 
 public class Desk {
     private Long deskId;
@@ -66,10 +66,10 @@ public class Desk {
         this.deskType = deskType;
     }
 
-    public Desk currentlyUnavailable(){
-        setCurrentlyUsable(false);
-        DeskApplicationService.deskApplicationService.closedDesk(deskId);
-
-        return this;
-    }
+//    public Desk currentlyUnavailable(){
+//        setCurrentlyUsable(false);
+//        DeskApplicationService.deskApplicationService.closedDesk(deskId);
+//
+//        return this;
+//    }
 }
