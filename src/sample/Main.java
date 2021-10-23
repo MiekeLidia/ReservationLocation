@@ -2,10 +2,13 @@ package sample;
 
 import LocationContext.Addapter.RoomRESTService;
 import LocationContext.Application.DeskApplicationService;
+import LocationContext.Application.LocationAplicationService;
 import LocationContext.Application.RoomApplicationService;
 import LocationContext.domain.repositories.DeskRepository;
+import LocationContext.domain.repositories.LocationRepository;
 import LocationContext.domain.repositories.RoomRepository;
 import LocationContext.infrastructure.persistence.HibernateDeskRepository;
+import LocationContext.infrastructure.persistence.HibernateFloorRepository;
 import LocationContext.infrastructure.persistence.HibernateRoomRepository;
 import LocationContext.domain.DeskType;
 import LocationContext.domain.repositories.FloorRepository;
@@ -16,6 +19,7 @@ public class Main {
     private static FloorRepository floorRepository;
     private static RoomApplicationService roomApplicationService;
     private static DeskApplicationService deskApplicationService;
+    private static LocationAplicationService locationAplicationService;
 
     public static void main(String[] args) {
         setup();
@@ -37,9 +41,12 @@ public class Main {
     private static void setup(){
         roomRepository = new HibernateRoomRepository();
         deskRepository = new HibernateDeskRepository();
-        floorRepository = new HibernaFlo();
+        floorRepository = new HibernateFloorRepository();
+
         roomApplicationService = new RoomApplicationService(roomRepository, deskRepository);
         deskApplicationService = new DeskApplicationService(deskRepository, roomRepository);
+        locationAplicationService = new LocationAplicationService(deskRepository, roomRepository);
+
         roomApplicationService.setDeskApplicationService(deskApplicationService);
         deskApplicationService.setRoomApplicationService(roomApplicationService);
     }
@@ -50,7 +57,6 @@ public class Main {
     }
 
     public static void addDeskToRoom(Long roomId, Long adminId, Long locationId, Long floorId, Long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, DeskType deskType) {
-        RoomRESTService roomRESTService = new RoomRESTService(roomApplicationService);
-        roomRESTService.addDeskToRoom(roomId, adminId, locationId, floorId, deskId, computerUsable, currentlyUsable, sockets, deskType);
+        locationAplicationService.addDeskToRoom(adminId, roomId, deskId, computerUsable, currentlyUsable, sockets, locationId, floorId, deskType);
     }
 }

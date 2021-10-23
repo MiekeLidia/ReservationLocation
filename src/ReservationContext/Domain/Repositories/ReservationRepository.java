@@ -1,6 +1,6 @@
-package SelfReservationContext.Domain.Repositories;
+package ReservationContext.Domain.Repositories;
 
-import SelfReservationContext.Domain.Reservation;
+import ReservationContext.Domain.Reservation;
 
 public interface ReservationRepository {
 

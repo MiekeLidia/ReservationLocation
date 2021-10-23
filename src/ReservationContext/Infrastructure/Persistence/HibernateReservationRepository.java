@@ -1,7 +1,7 @@
-package SelfReservationContext.Infrastructure.Persistence;
+package ReservationContext.Infrastructure.Persistence;
 
-import SelfReservationContext.Domain.Reservation;
-import SelfReservationContext.Domain.Repositories.ReservationRepository;
+import ReservationContext.Domain.Reservation;
+import ReservationContext.Domain.Repositories.ReservationRepository;
 
 public class HibernateReservationRepository implements ReservationRepository{
 

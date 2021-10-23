@@ -11,10 +11,8 @@ public class RoomRESTService {
 
     public RoomApplicationService roomApplicationService;
 
-    public RoomRESTService(RoomApplicationService applicationService){
-        DeskRepository deskRepository = new DeskRepository();
-        RoomRepository roomRepository = new RoomRepository();
-        this.roomApplicationService = new RoomApplicationService(deskRepository,roomRepository);
+    public RoomRESTService(RoomApplicationService roomApplicationService){
+        this.roomApplicationService = roomApplicationService;
     }
 
     public Room roomUnavailable(Long roomId){

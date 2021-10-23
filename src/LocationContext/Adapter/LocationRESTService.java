@@ -1,4 +1,4 @@
-package LocationContext.Addapter;
+package LocationContext.Adapter;
 
 import LocationContext.Application.DeskApplicationService;
 import LocationContext.Application.RoomApplicationService;
@@ -16,9 +16,7 @@ public class LocationRESTService {
 
 
     public LocationRESTService(RoomApplicationService roomApplicationService){
-        DeskRepository deskRepository = new DeskRepository();
-        RoomRepository roomRepository = new
-        this.roomApplicationService = new RoomApplicationService( deskRepository,  roomRepository);
+        this.roomApplicationService = roomApplicationService;
 
     }
 

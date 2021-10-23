@@ -2,10 +2,8 @@ package LocationContext.Application;
 
 import LocationContext.domain.*;
 import LocationContext.domain.repositories.DeskRepository;
-import LocationContext.domain.repositories.FloorRepository;
-import LocationContext.domain.repositories.LocationRepository;
 import LocationContext.domain.repositories.RoomRepository;
-import ReservationContext.Adapter.RestService;
+import ReservationContext.Adapter.ReservationRESTService;
 
 public class DeskApplicationService {
     private final DeskRepository deskRepository;
@@ -32,7 +30,7 @@ public class DeskApplicationService {
     public void store(){}
 
     public void closedDesk(Long deskId){
-        RestService.restService.closedDesk(deskId);
+//        ReservationRESTService.RESERVATION_REST_SERVICE.closedDesk(deskId);
     }
 
 }

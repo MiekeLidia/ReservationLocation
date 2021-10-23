@@ -3,21 +3,21 @@ package ReservationContext.Adapter;
 import java.sql.Date;
 import java.sql.Time;
 
-import SelfReservationContext.Domain.Reservation;
 import AccountContext.EmployeeRestService.EmployeeRestService;
 import ReservationContext.Application.ReservationApplicationService;
+import ReservationContext.Domain.Reservation;
 
-public class RestService {
-    public static final RestService restService = new RestService();
+public class ReservationRESTService {
+//    public static final ReservationRESTService RESERVATION_REST_SERVICE = new ReservationRESTService();
     private final ReservationApplicationService reservationService;
 
-    public RestService(){
-        this.reservationService = new ReservationApplicationService();
+    public ReservationRESTService(ReservationApplicationService reservationService){
+        this.reservationService = reservationService;
     }
 
     public void bookReservation(Date date, Time time,  Time amountTime, Long employeeId, Long deskId ){
         if (reservationService.checkDeskAvailability(deskId, time, date, amountTime)){
-            Reservation reservation = new Reservation(date, time, amountTime, employeeId, deskId);
+            Reservation reservation = new Reservation();
         }
 
 

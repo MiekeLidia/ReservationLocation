@@ -10,23 +10,17 @@ import LocationContext.domain.repositories.RoomRepository;
 
 public class LocationAplicationService {
     public final DeskRepository deskRepository;
-    public final LocationRepository locationRepository;
-    public final FloorRepository floorRepository;
     public final RoomRepository roomRepository;
     public final DeskApplicationService deskApplicationService;
 
-    public LocationAplicationService(DeskRepository deskRepository, RoomRepository roomRepository, LocationRepository locationRepository, FloorRepository floorRepository) {
+    public LocationAplicationService(DeskRepository deskRepository, RoomRepository roomRepository) {
         this.deskRepository = deskRepository;
-        this.locationRepository = locationRepository;
-        this.floorRepository = floorRepository;
         this.roomRepository = roomRepository;
         deskApplicationService = new DeskApplicationService(deskRepository, roomRepository);
     }
 
     public boolean addDeskToRoom(long adminId, Long roomId, long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, Long locationId, Long floorId, DeskType deskType) {
         try {
-            Location location = locationRepository.getLocationById(locationId);
-            Floor floor = floorRepository.getFloorById(floorId);
             deskApplicationService.addDeskToRoom(roomId, adminId, locationId, floorId, deskId, computerUsable, sockets, deskType);
             return true;
         } catch (Exception e) {
