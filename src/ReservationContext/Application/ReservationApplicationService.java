@@ -20,6 +20,11 @@ public class ReservationApplicationService {
         return true;
     }
 
+    public void bookReservation(Long deskId, Time time, Date date, Time amountTime, Long employeeId){
+        Reservation reservation = new Reservation(deskId, time, date, amountTime, employeeId);
+        reservationRepository.save(reservation);
+    }
+
     public void cancelReservation(Long deskId){
         Reservation reservation = reservationRepository.findReservationByDesk(deskId);
 
