@@ -24,7 +24,6 @@ public class Main {
         setup();
 
         roomPutUnavailable(10L);
-        addDeskToRoom();
     }
 
     private static void setup(){
@@ -43,19 +42,5 @@ public class Main {
     public static void roomPutUnavailable(Long roomId) {
         RoomRESTService roomService = new RoomRESTService(roomApplicationService);
         roomService.roomUnavailable(roomId);
-    }
-
-    public static void addDeskToRoom() {
-        Long roomId = 1L;
-        Long adminId = 1L;
-        Long locationId = 1L;
-        Long floorId = 1L;
-        Long deskId = 100L;
-        boolean computerUsable = true;
-        boolean currentlyUsable = true;
-        boolean sockets = false;
-        DeskType deskType = DeskType.STANDAARD_DESK;
-
-        locationApplicationService.addDeskToRoom(adminId, roomId, deskId, computerUsable, currentlyUsable, sockets, locationId, floorId, deskType);
     }
 }

@@ -19,7 +19,7 @@ public class RoomRESTService {
     }
 
     public Room addDeskToRoom(long roomId, long adminId, long locationId, long floorId, long deskId, boolean computer, boolean sockets, DeskType deskType){
-        roomApplicationService.addDeskToRoom( roomId, adminId, locationId, floorId, deskId, computer, sockets, deskType);
+        deskApplicationService.addDeskToRoom(adminId, roomId, deskId, computer, sockets, locationId, floorId, deskType);
         return new Room();
     }
 }

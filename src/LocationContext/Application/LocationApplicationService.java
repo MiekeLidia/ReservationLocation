@@ -15,14 +15,6 @@ public class LocationApplicationService {
         this.deskRepository = deskRepository;
         this.roomRepository = roomRepository;
         deskApplicationService = new DeskApplicationService(deskRepository, roomRepository);
-    }
 
-    public boolean addDeskToRoom(long adminId, Long roomId, long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, Long locationId, Long floorId, DeskType deskType) {
-        try {
-            deskApplicationService.addDeskToRoom(roomId, adminId, locationId, floorId, deskId, computerUsable, sockets, deskType);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
     }
 }
