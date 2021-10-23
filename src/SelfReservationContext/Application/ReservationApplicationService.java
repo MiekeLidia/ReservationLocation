@@ -1,6 +1,5 @@
 package SelfReservationContext.Application;
 
-import LocationContext.Application.DeskApplicationService;
 import SelfReservationContext.Data.ReservationRepository;
 import SelfReservationContext.Domain.Reservation;
 
