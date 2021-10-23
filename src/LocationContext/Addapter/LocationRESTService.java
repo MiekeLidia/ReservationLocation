@@ -14,8 +14,10 @@ public class LocationRESTService {
     public final LocationRepository locationRepository;
     public final FloorRepository floorRepository;
 
-    public LocationRESTService(){
+    public LocationRESTService(LocationRepository locationRepository, FloorRepository floorRepository){
         this.roomApplicationService = new RoomApplicationService();
+        this.locationRepository = locationRepository;
+        this.floorRepository = floorRepository;
     }
 
     public Room roomUnavailable(Long roomId){

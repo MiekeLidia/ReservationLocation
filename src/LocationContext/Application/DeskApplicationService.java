@@ -12,7 +12,7 @@ import LocationContext.domain.repositories.RoomRepository;
 import SelfReservationContext.Adapter.RestService;
 
 public class DeskApplicationService {
-    public static final DeskApplicationService deskApplicationService = new DeskApplicationService();
+    public final DeskApplicationService deskApplicationService = new DeskApplicationService();
     public final DeskRepository deskRepository;
     public final RoomRepository roomRepository;
 
