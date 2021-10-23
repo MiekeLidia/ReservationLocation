@@ -13,11 +13,11 @@ public class RoomApplicationService {
         this.roomRepository = roomRepository;
     }
 
-    public Room roomUnavailable(Long roomId){
+    public Room roomUnavailable(Long roomId) {
         Room room = roomRepository.getRoomById(roomId);
         room.roomUnavailable();
 
-        for(Desk desk: room.getDesks()){
+        for (Desk desk : room.getDesks()) {
             deskRepository.save(desk);
         }
 
@@ -27,13 +27,7 @@ public class RoomApplicationService {
     }
 
     public boolean addDeskToRoom(long adminId, Long roomId, long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, Long floorId, DeskType deskType, Long locationId) {
+        Desk desk = new Desk(deskId, computerUsable, currentlyUsable, sockets, floorId, deskType, locationId);
 
-        try {
-            DeskApplicationService.addDeskToRoom(adminId, roomId, deskId, computerUsable, currentlyUsable, sockets, floorId, deskType, locationId);
-            return true;
-        } catch (Exeption e) {
-            return false;
-        }
     }
-
 }

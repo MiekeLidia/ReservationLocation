@@ -23,9 +23,9 @@ public class DeskApplicationService {
 
 
         try{
-            Location location = locationRepository.getLocationById(locationId);
-            Floor floor = floorRepository.getFloorById(floorId);
-            DeskApplicationService.addDeskToRoom(adminId, roomId, deskId, computerUsable, currentlyUsable, sockets, floor, deskType);
+//            Location location = locationRepository.getLocationById(locationId);
+//            Floor floor = floorRepository.getFloorById(floorId);
+            RoomApplicationService.addDeskToRoom(adminId, roomId, deskId, computerUsable, currentlyUsable, sockets, floor, deskType);
             return true;
         }catch (Exeption e){
             return false;
@@ -33,15 +33,15 @@ public class DeskApplicationService {
 
 
 
-        boolean validateAdmin = IdentitiAndAccessRESTService.validateAdminID(adminId);
-        Desk desk = deskRepository.getDeskById(deskId);
-        Room room = roomRepository.getRoomById(roomId);
+//        boolean validateAdmin = IdentitiAndAccessRESTService.validateAdminID(adminId);
+//        Desk desk = deskRepository.getDeskById(deskId);
+//        Room room = roomRepository.getRoomById(roomId);
 
-        if (desk == null && validateAdmin && room != null){
-            Desk d = room.addDesk(deskId, computerUsable, currentlyUsable, sockets, floor, deskType);
-            return true;
-        }
-        return false;
+//        if (desk == null && validateAdmin && room != null){
+//            Desk d = room.addDesk(deskId, computerUsable, currentlyUsable, sockets, floor, deskType);
+//            return true;
+//        }
+//        return false;
     }
         
 

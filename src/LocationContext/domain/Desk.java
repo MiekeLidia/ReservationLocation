@@ -7,22 +7,22 @@ public class Desk {
     private boolean computerUsable;
     private boolean currentlyUsable;
     private boolean sockets;
-    private Floor floor;
+    private Long floorId;
     private DeskType deskType;
-    private Room room;
+    private Long roomId;
 
     public Desk(Long deskId){
         this.deskId = deskId;
     }
 
-    public Desk(Long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, Floor floor, DeskType deskType, Room room) {
+    public Desk(Long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, Long floorId, DeskType deskType, Long roomId) {
         this.deskId = deskId;
         this.computerUsable = computerUsable;
         this.currentlyUsable = currentlyUsable;
         this.sockets = sockets;
-        this.floor = floor;
+        this.floorId = floorId;
         this.deskType = deskType;
-        this.room = room;
+        this.roomId = roomId;
     }
 
     public Long getDeskId() {
@@ -57,13 +57,6 @@ public class Desk {
         this.sockets = sockets;
     }
 
-    public Floor getFloor() {
-        return floor;
-    }
-
-    public void setFloor(Floor floor) {
-        this.floor = floor;
-    }
 
     public DeskType getDeskType() {
         return deskType;
@@ -71,14 +64,6 @@ public class Desk {
 
     public void setDeskType(DeskType deskType) {
         this.deskType = deskType;
-    }
-
-    public Room getRoom() {
-        return room;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
     }
 
     public Desk currentlyUnavailable(){
