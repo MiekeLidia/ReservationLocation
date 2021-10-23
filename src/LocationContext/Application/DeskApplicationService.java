@@ -1,10 +1,23 @@
 package LocationContext.Application;
 
-import LocationContext.domain.DeskType;
-import ReservationContext.Adapter.RestService;
+import IdentityAndAccessContext.Adapter.IdentitiAndAccessRESTService;
+import LocationContext.domain.*;
+import LocationContext.domain.repositories.DeskRepository;
+import LocationContext.domain.repositories.FloorRepository;
+import LocationContext.domain.repositories.LocationRepository;
+import LocationContext.domain.repositories.RoomRepository;
+import SelfReservationContext.Adapter.RestService;
 
 public class DeskApplicationService {
-    public static final DeskApplicationService deskApplicationService = new DeskApplicationService();
+    public final DeskRepository deskRepository;
+    public final RoomRepository roomRepository;
+
+
+    public DeskApplicationService(DeskRepository deskRepository, RoomRepository roomRepository) {
+        this.deskRepository = deskRepository;
+        this.roomRepository = roomRepository;
+    }
+        
 
     public boolean addDeskToRoom(long roomId, long adminId, long locationId, long floorId, long deskId, boolean computer, boolean socket, DeskType deskType){
 //        Room room = RoomRepository.findById(roomId);

@@ -1,6 +1,7 @@
 package LocationContext.domain.repositories;
 
 import LocationContext.domain.Desk;
+import LocationContext.domain.Room;
 
 public interface DeskRepository {
 

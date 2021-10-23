@@ -7,6 +7,7 @@ import LocationContext.domain.repositories.DeskRepository;
 import LocationContext.domain.repositories.RoomRepository;
 import LocationContext.infrastructure.persistence.HibernateDeskRepository;
 import LocationContext.infrastructure.persistence.HibernateRoomRepository;
+import LocationContext.Adapter.LocationRESTService;
 
 public class Main {
     private static RoomRepository roomRepository;
