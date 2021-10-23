@@ -4,13 +4,17 @@ import LocationContext.Application.RoomApplicationService;
 import LocationContext.domain.Desk;
 import LocationContext.domain.DeskType;
 import LocationContext.domain.Room;
+import LocationContext.domain.repositories.DeskRepository;
+import LocationContext.domain.repositories.RoomRepository;
 
 public class RoomRESTService {
 
     public RoomApplicationService roomApplicationService;
 
     public RoomRESTService(RoomApplicationService applicationService){
-        this.roomApplicationService = applicationService;
+        DeskRepository deskRepository = new DeskRepository();
+        RoomRepository roomRepository = new RoomRepository();
+        this.roomApplicationService = new RoomApplicationService(deskRepository,roomRepository);
     }
 
     public Room roomUnavailable(Long roomId){
