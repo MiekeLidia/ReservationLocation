@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/LocationContext/Addapter/RoomRESTService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocationContext/Addapter/LocationRESTService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationContext/Addapter/LocationRESTService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocationContext/Application/DeskApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationContext/Application/DeskApplicationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocationContext/Application/RoomApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationContext/Application/RoomApplicationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocationContext/domain/Desk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationContext/domain/Desk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocationContext/domain/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationContext/domain/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LocationContext/Adapter/RoomRESTService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationContext/Adapter/RoomRESTService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,10 +222,10 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="574" y="133" key="#com.intellij.ide.util.MemberChooser" timestamp="1634982662370">
+    <state x="574" y="133" key="#com.intellij.ide.util.MemberChooser" timestamp="1635006712004">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="574" y="133" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1634982662370" />
+    <state x="574" y="133" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1635006712004" />
     <state x="618" y="306" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1634639258075">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
