@@ -31,11 +31,11 @@ public class Desk {
         this.currentlyUsable = currentlyUsable;
     }
 
-    public Desk currentlyUnavailable(){
+    public Desk currentlyUnavailable(DeskApplicationService deskApplicationService){
         setCurrentlyUsable(false);
 
         // Inject Adapter pattern
-        DeskApplicationService.deskApplicationService.closedDesk(deskId);
+        deskApplicationService.closedDesk(deskId);
 
         return this;
     }

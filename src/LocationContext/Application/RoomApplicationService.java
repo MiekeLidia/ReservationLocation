@@ -1,15 +1,13 @@
 package LocationContext.Application;
 
-import IdentityAndAccessContext.Adapter.IdentitiAndAccessRESTService;
 import LocationContext.domain.*;
 import LocationContext.domain.repositories.DeskRepository;
 import LocationContext.domain.repositories.RoomRepository;
-import LocationContext.infrastructure.persistence.HibernateDeskRepository;
-import LocationContext.infrastructure.persistence.HibernateRoomRepository;
 
 public class RoomApplicationService {
-    public final DeskRepository deskRepository;
-    public final RoomRepository roomRepository;
+    private final DeskRepository deskRepository;
+    private final RoomRepository roomRepository;
+    private DeskApplicationService deskApplicationService;
 
     public RoomApplicationService(RoomRepository roomRepository, DeskRepository deskRepository){
         this.roomRepository = roomRepository;
@@ -18,7 +16,7 @@ public class RoomApplicationService {
 
     public Room roomUnavailable(Long roomId) {
         Room room = roomRepository.getRoomById(roomId);
-        room.roomUnavailable();
+        room.roomUnavailable(deskApplicationService);
 
         for (Desk desk : room.getDesks()) {
             deskRepository.save(desk);
@@ -28,13 +26,16 @@ public class RoomApplicationService {
     }
 
     public Desk addDeskToRoom(long adminId, Long roomId, long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, Long floorId, DeskType deskType, Long locationId) {
-        boolean validateAdmin = IdentitiAndAccessRESTService.validateAdminID(adminId);
-        Desk desk = deskRepository.getDeskById(deskId);
+        Desk desk = deskRepository.findById(deskId);
         Room room = roomRepository.getRoomById(roomId);
 
-        if (desk == null && validateAdmin && room != null){
+        if (desk == null && room != null){
             room.addDesk(deskId, computerUsable, currentlyUsable, sockets, floorId, deskType, locationId);
         }
         return null;
+    }
+
+    public void setDeskApplicationService(DeskApplicationService deskApplicationService){
+        this.deskApplicationService = deskApplicationService;
     }
 }

@@ -1,5 +1,7 @@
 package LocationContext.domain;
 
+import LocationContext.Application.DeskApplicationService;
+import LocationContext.domain.repositories.DeskRepository;
 import LocationContext.domain.repositories.RoomRepository;
 
 import java.util.List;
@@ -28,10 +30,10 @@ public class Room {
         this.currentlyUsable = available;
     }
 
-    public Room roomUnavailable(){
+    public Room roomUnavailable(DeskApplicationService deskService){
         setCurrentlyUsable(false);
         for(Desk desk: desks){
-            desk.currentlyUnavailable();
+            desk.currentlyUnavailable(deskService);
         }
         return this;
     }

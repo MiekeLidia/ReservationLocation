@@ -7,7 +7,6 @@ import LocationContext.domain.repositories.DeskRepository;
 import LocationContext.domain.repositories.RoomRepository;
 import LocationContext.infrastructure.persistence.HibernateDeskRepository;
 import LocationContext.infrastructure.persistence.HibernateRoomRepository;
-import LocationContext.Adapter.LocationRESTService;
 
 public class Main {
     private static RoomRepository roomRepository;
@@ -24,7 +23,9 @@ public class Main {
         roomRepository = new HibernateRoomRepository();
         deskRepository = new HibernateDeskRepository();
         roomApplicationService = new RoomApplicationService(roomRepository, deskRepository);
-        deskApplicationService = new DeskApplicationService();
+        deskApplicationService = new DeskApplicationService(deskRepository, roomRepository);
+        roomApplicationService.setDeskApplicationService(deskApplicationService);
+        deskApplicationService.setRoomApplicationService(roomApplicationService);
     }
 
     public static void roomPutUnavailable(Long roomId){
