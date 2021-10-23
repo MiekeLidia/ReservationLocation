@@ -29,12 +29,12 @@ public class Room {
         this.currentlyUsable = available;
     }
 
-//    public Room roomUnavailable(){
-//        setCurrentlyUsable(false);
-//        for(Desk desk: desks){
-//            desk.currentlyUnavailable();
-//        }
-//        return this;
-//    }
+    public Room roomUnavailable(){
+        setCurrentlyUsable(false);
+        for(Desk desk: desks){
+            desk.currentlyUnavailable();
+        }
+        return this;
+    }
 
 }

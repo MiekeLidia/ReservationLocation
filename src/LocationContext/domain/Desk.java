@@ -10,6 +10,7 @@ public class Desk {
     private Long floorId;
     private DeskType deskType;
     private Long roomId;
+    private DeskApplicationService deskApplicationService;
 
     public Desk(Long deskId){
         this.deskId = deskId;
@@ -66,10 +67,10 @@ public class Desk {
         this.deskType = deskType;
     }
 
-//    public Desk currentlyUnavailable(){
-//        setCurrentlyUsable(false);
-//        DeskApplicationService.deskApplicationService.closedDesk(deskId);
-//
-//        return this;
-//    }
+    public Desk currentlyUnavailable(){
+        setCurrentlyUsable(false);
+        deskApplicationService.closedDesk(deskId);
+
+        return this;
+    }
 }
