@@ -7,19 +7,7 @@ import java.util.ArrayList;
 
 public interface DeskRepository {
 
-    public static boolean deskExists(long deskId) {
-        if (getDeskById(deskId) == null){
-            return false;
-        }
-        return true;
-    }
+    public Desk getDeskById(Long deskId);
 
-    public static Desk getDeskById(Long deskId){
-       return findById(deskId);
-    }
-
-    public boolean save(Desk desk){
-        System.out.println("Saving Desk...");
-        return true;
-    }
+    public boolean save(Desk desk);
 }

@@ -10,8 +10,8 @@ public class RoomApplicationService {
     public final DeskRepository deskRepository;
 
     public RoomApplicationService(){
-        this.roomRepository = new RoomRepository();
         this.deskRepository = new DeskRepository();
+        roomRepository = new RoomRepository();
     }
 
     public Room roomUnavailable(Long roomId){
