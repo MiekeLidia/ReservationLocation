@@ -1,4 +1,4 @@
-package LocationContext.Application;
+package LocationContext.application;
 
 import LocationContext.domain.DeskType;
 import LocationContext.domain.Floor;
@@ -17,15 +17,15 @@ public class LocationAplicationService {
         this.roomRepository = roomRepository;
     }
 
-    public boolean addDeskToRoom(long adminId, Long roomId, long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, Floor floor, DeskType deskType) {
-
-
-        try{
-            Location location = locationRepository.getLocationById(locationId);
-            Floor floor = floorRepository.getFloorById(floorId);
-            DeskApplicationService.addDeskToRoom(adminId, roomId, deskId, computerUsable, currentlyUsable, sockets, floor, deskType);
-            return true;
-        }catch (Exeption e){
-            return false;
-        }
+//    public boolean addDeskToRoom(long adminId, Long roomId, long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, Floor floor, DeskType deskType) {
+//
+//
+//        try{
+//            Location location = locationRepository.getLocationById(locationId);
+//            Floor floor = floorRepository.getFloorById(floorId);
+//            DeskApplicationService.addDeskToRoom(adminId, roomId, deskId, computerUsable, currentlyUsable, sockets, floor, deskType);
+//            return true;
+//        }catch (Exeption e){
+//            return false;
+//        }
 }
