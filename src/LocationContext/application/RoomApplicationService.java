@@ -32,17 +32,21 @@ public class RoomApplicationService {
         return room;
     }
 
-    public boolean addDeskToRoom(long adminId, Long roomId, long deskId, boolean computerUsable, boolean currentlyUsable, boolean sockets, Long floorId, DeskType deskType, Long locationId) {
-        Desk desk = deskRepository.findById(deskId);
+    public boolean addDeskToRoom(long roomId, long adminId, long locationId, long floorId, long deskId, boolean computer, boolean sockets, DeskType deskType){
+        //boolean validateAdmin = IdentitiAndAccessRESTService.validateAdminID(adminId);
         Room room = roomRepository.findById(roomId);
 
-        if (desk == null && room != null){
-            room.addDesk(deskId, computerUsable, currentlyUsable, sockets, floorId, deskType, locationId);
-            roomRepository.save(room);
-            deskRepository.save(desk);
-            return true;
-        }
 
+        if(roomRepository.findById(roomId) == null) {
+                                            //&& validateAdmin == true
+            Desk newDesk;
+            if (deskRepository.findById(deskId) == null){
+                newDesk = room.addDesk(deskId, computer, true, sockets, floorId, deskType, locationId);
+                deskRepository.save(newDesk);
+                roomRepository.save(room);
+                return true;
+            }
+        }
         return false;
     }
 
